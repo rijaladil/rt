@@ -22,6 +22,10 @@ class T_login extends CI_Model
                 'warga_id'  => $row->warga_id,
                 'loggin'    => TRUE
             );
+             $this->db->where('amara_m_user.email', $email);
+             $this->db->update('amara_m_user', 
+                  array('last_login'=> date('Y-m-d H:i:s'))
+                 );
             $this->session->set_userdata($data);
              if
                 (
