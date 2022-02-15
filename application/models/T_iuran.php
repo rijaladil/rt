@@ -20,6 +20,7 @@
 								iuran.id, 
 								warga.name, 
 								warga.address_domisili, 
+								iuran.id_warga,
 							    iuran.pay_date, 
 							    iuran.pay_month_year, 
 							    iuran.nominal,

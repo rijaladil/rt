@@ -75,14 +75,12 @@ class iuran extends CI_Controller{
  	// process update
 	 public function update(){
 		$id= $this->input->post('id');
-		$id_Warga = $this->input->post('id_warga');
 	 	$pay_date = $this->input->post('pay_date');
 	 	$pay_month_year = $this->input->post('pay_month_year');
 	 	$nominal = $this->input->post('nominal');
 	 	$keterangan = $this->input->post('keterangan');
 
 		$data = array(
-			'id_warga' => $id_warga,
 			'pay_date' => $pay_date,
 			'pay_month_year' => $pay_month_year,
 			'nominal' => $nominal,

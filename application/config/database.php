@@ -76,15 +76,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 
-	'hostname' => 'gpakonsultan.co.id',
-	'username' => 'u6828186_amara03',
-	'password' => 'Amarapura01',
-	'database' => 'u6828186_amara03',
+	// 'hostname' => 'gpakonsultan.co.id',
+	// 'username' => 'u6828186_amara03',
+	// 'password' => 'Amarapura01',
+	// 'database' => 'u6828186_amara03',
 
-	// 'hostname' => '127.0.0.1',
-	// 'username' => 'root',
-	// 'password' => '123asd456',
-	// 'database' => 'amara',
+	'hostname' => '127.0.0.1',
+	'username' => 'root',
+	'password' => '123asd456',
+	'database' => 'amara',
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

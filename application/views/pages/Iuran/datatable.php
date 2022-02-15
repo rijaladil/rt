@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
        <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -64,29 +65,13 @@
 												<td><?php echo $i->keterangan ?></td>
 												
 												<td class="row justify-content-center">	
-																		
-																		
-									                  <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $i->id ?>" hidden>
-									                    <span class="icon text-white-50">
-														  					<i class="fa fa-edit"></i>
-									                    </span>
-									                  </a>
-
-									                   <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm" hidden >
-									                    <span class="icon text-white-50">
-									                      <i class="fas fa-trash"></i>
-									                    </span>					                    
-									                  </a>
-									                  
-									                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
-									                  	
-									                    <span class="icon text-white-50">
-									                      <i class="fas fa-edit"></i>
-									                    </span>					                    
-									                  </a>
-
-
-
+																											                  
+					                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+					                  	
+					                    <span class="icon text-white-50">
+					                      <i class="fas fa-edit"></i>
+					                    </span>					                    
+					                  </a>
 
 												</td>
 											</tr>
@@ -120,7 +105,7 @@
 							<th width="20%">PAY MONTH YEAR</th>
 							<th width="10%">NOMINAL</th>
 							<th width="20%">KET.</th>
-							<th width="7%" hidden=>ACTION</th>
+							<th width="7%">ACTION</th>
 						</tr>
 						
 					 </thead>
@@ -137,8 +122,21 @@
 								<td><?php echo  date('Y-m', strtotime($in->pay_month_year)) ?></td>
 								<td><?php echo number_format($in->nominal ,0,',','.')?></td>
 								<td><?php echo $in->keterangan ?></td>
-								
-								<td></td>
+								<td class="row justify-content-center">																	
+																		
+                  <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
+                    <span class="icon text-white-50">
+					  					<i class="fa fa-edit"></i>
+                    </span>
+                  </a>
+                  &#160;
+                   <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$in->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>					                    
+                  </a>						
+
+									</td>
 							</tr>
 							<?php } ?>
 						</tbody>
@@ -163,12 +161,9 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">NAMA:</label>	
-										<select class="form-control" id="id_warga"  name="id_warga" >							
-											<option value="" >PILIH</option>
-										<?php 
-											
-											foreach($warga as $w){ 
-											?>
+										<select class="form-control"  id="id_warga"  name="id_warga" style="width:100%" required>
+										<option value="">PILIH</option>							
+										<?php foreach($warga as $w){ ?>
 											<option value="<?php echo $w->id ?>"> <?php echo $w->address_domisili ?> : <?php echo $w->name ?> </option>
 										<?php } ?>
 									</select>
@@ -180,7 +175,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">PAY DATE: </label>
-										<input class="form-control" id="inputdefault" type="date" name="pay_date" required value="<?php echo date('Y-m-d')?>">
+										<input class="form-control" id="pay_date" type="text" name="pay_date" required value="<?php echo date('Y-m-d')?>">
 									</div>
 								</td>
 							</tr>
@@ -188,14 +183,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">PAY MONTH YEAR: </label>
-										<!-- <input class="form-control" id="inputdefault" type="date" name="pay_month_year" required > -->
-										<select class="form-control" required="" name="pay_month_year">
-											<option value="<?php echo date('Y-m-01') ?>"><?php echo date('Y-m') ?></option>
-											<?php foreach($month as $m){ ?>
-											<option value="<?php echo $m->pay_month_year ?>"><?php echo $m->pay_month_year ?></option>
-										<?php } ?>
-
-										</select>
+										<input class="form-control" id="pay_month_year" type="text" name="pay_month_year" required  value="<?php echo date('Y-m-01')?>">
 									</div>
 							</tr>
 								</td>
@@ -203,7 +191,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">NOMINAL: </label>
-										<input class="form-control" id="inputdefault" type="text"  name="nominal" required>
+										<input class="form-control" id="inputdefault" type="text"  name="nominal" required value="75000">
 									</div>
 								</td>
 							</tr>
@@ -227,14 +215,11 @@
 				</div>
 				</div>
 			</div>
-
-
 			
 		</div>
 </div>
 
-
-			<?php $id = 1; 	foreach($iuran as $i){ 
+			<?php $id = 1; 	foreach($iuran_now as $i){ 
 			?>
 			<div class="modal fade" id="Fedit<?php echo $i->id ?>" role="dialog">
 				<div class="modal-dialog modal-xl">
@@ -246,22 +231,15 @@
 					<div class="modal-body">
 					
 					<form action="<?php echo base_url(). 'index.php/iuran/update'; ?>" method="post">
-		
 							
 							<tr>
 								<td>
 									<div class="form-group">
 										<input type="hidden" name="id" value="<?php echo $i->id ?>">
 										<label for="inputdefault">NAMA:</label>	
-										<select class="form-control" id="id_warga"  name="id_warga" >							
-											<option value="" >PILIH</option>
-										<?php 
-											
-											foreach($warga as $w){ 
-											?>
-											<option value="<?php echo $w->id ?>"> <?php echo $w->address_domisili ?> : <?php echo $w->name ?> </option>
-										<?php } ?>
-									</select>
+										<select class="form-control"  name="id_warga" style="width: 100%;" >	
+											<option value="<?php echo $i->id_warga ?>"> <?php echo $i->address_domisili ?> : <?php echo $i->name ?> </option>	
+										</select>
 									</div>
 								</td>
 							</tr>
@@ -270,7 +248,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">PAY DATE: </label>
-										<input class="form-control" id="inputdefault" type="date" name="pay_date" required>
+										<input class="form-control" id="pay_date2" type="text" name="pay_date" required value="<?php echo $i->pay_date;?>">
 									</div>
 								</td>
 							</tr>
@@ -278,7 +256,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">PAY MONTH YEAR: </label>
-										<input class="form-control" id="inputdefault" type="date" name="pay_month_year" required >
+										<input class="form-control" id="pay_month_year2" type="text" name="pay_month_year" required  value="<?php echo $i->pay_month_year;?>">
 									</div>
 							</tr>
 								</td>
@@ -286,7 +264,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">NOMINAL: </label>
-										<input class="form-control" id="inputdefault" type="text"  name="nominal" required>
+										<input class="form-control" id="inputdefault" type="text"  name="nominal" required value="<?php echo $i->nominal;?>">
 									</div>
 								</td>
 							</tr>
@@ -311,3 +289,42 @@
 			</div>
 			<?php } ?>
 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+
+<script>
+$("#id_warga").select2();
+
+$("#pay_date").datepicker( {
+    format: "yyyy-mm-dd",
+});
+
+
+$("#pay_month_year").datepicker( {
+    format: "yyyy-mm-dd",
+    startView: "months", 
+    minViewMode: "months"
+});
+
+$("#pay_date2").datepicker( {
+    format: "yyyy-mm-dd",
+});
+
+
+$("#pay_month_year2").datepicker( {
+    format: "yyyy-mm-dd",
+    startView: "months", 
+    minViewMode: "months"
+});
+
+
+
+
+	</script>
