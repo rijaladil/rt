@@ -9,13 +9,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -161,14 +161,14 @@
 
                         $ibbln_my = $ib->bln_my1 + $ib->bln_my2 + $ib->bln_my3 + $ib->bln_my4 + $ib->bln_my5 + $ib->bln_my6 + $ib->bln_my7 + $ib->bln_my8 + $ib->bln_my9 + $ib->bln_my10 + $ib->bln_my11 + $ib->bln_my12;
                         $ibbln_my_month = $ibbln_my / $month;
-                        $ibbln_my_month_rn = $ibbln_my_month / $rn;
+                        $ibbln_my_month_rp = $ibbln_my_month / $rp;
 
                         echo "Average Pay Date : <b>  ";
                         echo number_format($ibbln_month);
                         echo " </b> | Person : <b>".number_format($ibbln_month_rp)."</b> | Ability : <b> ". number_format( $ibbln_month_rp * $rn );
                         echo "</b><br>Average Pay Month Year : <b> ";
                         echo number_format($ibbln_my_month);
-                        echo "</b> | Person : <b>".number_format($ibbln_my_month_rn)."</b> | Ability : <b> ". number_format( $ibbln_my_month_rn * $rn );
+                        echo "</b> | Person : <b>".number_format($ibbln_my_month_rp)."</b> | Ability : <b> ". number_format( $ibbln_my_month_rp * $rn );
                         echo "</b>";
 
                     }?> 
@@ -198,14 +198,14 @@
 
                         $ibblln_my = $ibl->blnl_my1 + $ibl->blnl_my2 + $ibl->blnl_my3 + $ibl->blnl_my4 + $ibl->blnl_my5 + $ibl->blnl_my6 + $ibl->blnl_my7 + $ibl->blnl_my8 + $ibl->blnl_my9 + $ibl->blnl_my10 + $ibl->blnl_my11 + $ibl->blnl_my12;
                         $ibblln_my_month = $ibblln_my / $month;
-                        $ibblln_my_month_rn = $ibblln_my_month / $rn;
+                        $ibblln_my_month_rp = $ibblln_my_month / $rp;
 
                         echo "Average Pay Date : <b>  ";
                         echo number_format($ibblln_month);
                         echo " </b> | Person : <b>".number_format($ibblln_month_rp)."</b> | Ability : <b> ". number_format( $ibblln_month_rp * $rn );
                         echo "</b><br>Average Pay Month Year : <b> ";
                         echo number_format($ibblln_my_month);
-                        echo "</b> | Person : <b>".number_format($ibblln_my_month_rn)."</b> | Ability : <b> ". number_format( $ibblln_my_month_rn * $rn );
+                        echo "</b> | Person : <b>".number_format($ibblln_my_month_rp)."</b> | Ability : <b> ". number_format( $ibblln_my_month_rp * $rn );
                         echo "</b>";
 
 
@@ -480,13 +480,13 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Core plugin JavaScript-->
     <script src="<?php echo base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.min.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/js/sb-admin-2.min.js"></script> -->
 
     <!-- Page level plugins -->
     <script src="<?php echo base_url(); ?>assets/vendor/chart.js/Chart.min.js"></script>
