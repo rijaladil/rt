@@ -20,6 +20,7 @@
 							<th>Email</th>
 							<th>Contact</th>
 							<th>User Level</th>
+							<th>Last Login</th>
 							<th width="10%">Action</th>
 						</tr>
 
@@ -41,6 +42,7 @@
 									<?php else: ?> Warga
 									<?php endif; ?>
 								</td>
+								<td><?php echo $u->last_login ?></td>
 								<td>
 							
 
