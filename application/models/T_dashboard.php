@@ -97,6 +97,74 @@
 	}
 
 
+	public function get_data_iuran_tahun(){
+		return $this->db->query('
+        SELECT 
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as bln1,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as bln2,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as bln3,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-04-01") AND DATE_FORMAT(NOW(),"%Y-04-31")) as bln4,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-05-01") AND DATE_FORMAT(NOW(),"%Y-05-31")) as bln5,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-06-01") AND DATE_FORMAT(NOW(),"%Y-06-31")) as bln6,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-07-01") AND DATE_FORMAT(NOW(),"%Y-07-31")) as bln7,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-08-01") AND DATE_FORMAT(NOW(),"%Y-08-31")) as bln8,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-09-01") AND DATE_FORMAT(NOW(),"%Y-09-31")) as bln9,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-10-01") AND DATE_FORMAT(NOW(),"%Y-10-31")) as bln10,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-11-01") AND DATE_FORMAT(NOW(),"%Y-11-31")) as bln11,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as bln12,
+
+
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as bln_my1,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as bln_my2,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as bln_my3,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-04-01") AND DATE_FORMAT(NOW(),"%Y-04-31")) as bln_my4,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-05-01") AND DATE_FORMAT(NOW(),"%Y-05-31")) as bln_my5,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-06-01") AND DATE_FORMAT(NOW(),"%Y-06-31")) as bln_my6,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-07-01") AND DATE_FORMAT(NOW(),"%Y-07-31")) as bln_my7,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-08-01") AND DATE_FORMAT(NOW(),"%Y-08-31")) as bln_my8,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-09-01") AND DATE_FORMAT(NOW(),"%Y-09-31")) as bln_my9,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-10-01") AND DATE_FORMAT(NOW(),"%Y-10-31")) as bln_my10,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-11-01") AND DATE_FORMAT(NOW(),"%Y-11-31")) as bln_my11,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as bln_my12
+	    
+	    
+		');
+	}
+
+
+	public function get_data_iuran_tahun_last(){
+		return $this->db->query('
+        SELECT 
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as blnl1,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as blnl2,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as blnl3,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-31")) as blnl4,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-31")) as blnl5,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-31")) as blnl6,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-31")) as blnl7,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-31")) as blnl8,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-31")) as blnl9,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-31")) as blnl10,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-31")) as blnl11,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as blnl12,
+
+
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as blnl_my1,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as blnl_my2,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as blnl_my3,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-31")) as blnl_my4,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-31")) as blnl_my5,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-31")) as blnl_my6,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-31")) as blnl_my7,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-31")) as blnl_my8,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-31")) as blnl_my9,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-31")) as blnl_my10,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-31")) as blnl_my11,
+        (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as blnl_my12
+	    
+	    
+		');
+	}
 
 
 
