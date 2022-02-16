@@ -1,23 +1,4 @@
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="<?php echo base_url(); ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="<?php echo base_url(); ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -238,7 +219,7 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
                              <thead>
                             <tr>
                             <th width="2%">No</th>
@@ -500,7 +481,16 @@
 
 
 <script type="text/javascript">
-    
+
+function numFormatter(num) {
+    if(num > 999 && num < 1000000){
+        return (num/1000).toFixed(1) + 'K'; // convert to K for number from > 1000 < 1 million 
+    }else if(num > 1000000){
+        return (num/1000000).toFixed(1) + 'M'; // convert to M for number from > 1 million 
+    }else if(num < 900){
+        return num; // if value < 1000, nothing to do
+    }
+}
     // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -607,7 +597,7 @@ var myBarChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return 'Rp' + number_format(value);
+            return 'Rp ' + numFormatter(value);
           }
         },
         gridLines: {
@@ -728,7 +718,7 @@ var myBarChart2 = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return 'Rp' + number_format(value);
+            return 'Rp ' + numFormatter(value);
           }
         },
         gridLines: {

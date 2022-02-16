@@ -66,12 +66,12 @@
 												
 												<td class="row justify-content-center">	
 																											                  
-					                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
-					                  	
-					                    <span class="icon text-white-50">
-					                      <i class="fas fa-edit"></i>
-					                    </span>					                    
-					                  </a>
+								                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+								                  	
+								                    <span class="icon text-white-50">
+								                      <i class="fas fa-edit"></i>
+								                    </span>					                    
+								                  </a>
 
 												</td>
 											</tr>
@@ -95,7 +95,7 @@
             </div>		 
 			 <div class="card-body">
               	<div class="table-responsive">		
-				    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
 	                 <thead>
 						<tr>
 						<th width="2%">No</th>
@@ -124,17 +124,17 @@
 								<td><?php echo $in->keterangan ?></td>
 								<td class="row justify-content-center">																	
 																		
-                  <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
-                    <span class="icon text-white-50">
-					  					<i class="fa fa-edit"></i>
-                    </span>
-                  </a>
-                  &#160;
-                   <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$in->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                    </span>					                    
-                  </a>						
+						          <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
+						            <span class="icon text-white-50">
+									  					<i class="fa fa-edit"></i>
+						            </span>
+						          </a>
+						          &#160;
+						           <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$in->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+						            <span class="icon text-white-50">
+						              <i class="fas fa-trash"></i>
+						            </span>					                    
+						          </a>						
 
 									</td>
 							</tr>
