@@ -114,6 +114,20 @@
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as bln12,
 
 
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as iuran_bln1,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as iuran_bln2,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as iuran_bln3,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-04-01") AND DATE_FORMAT(NOW(),"%Y-04-31")) as iuran_bln4,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-05-01") AND DATE_FORMAT(NOW(),"%Y-05-31")) as iuran_bln5,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-06-01") AND DATE_FORMAT(NOW(),"%Y-06-31")) as iuran_bln6,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-07-01") AND DATE_FORMAT(NOW(),"%Y-07-31")) as iuran_bln7,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-08-01") AND DATE_FORMAT(NOW(),"%Y-08-31")) as iuran_bln8,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-09-01") AND DATE_FORMAT(NOW(),"%Y-09-31")) as iuran_bln9,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-10-01") AND DATE_FORMAT(NOW(),"%Y-10-31")) as iuran_bln10,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-11-01") AND DATE_FORMAT(NOW(),"%Y-11-31")) as iuran_bln11,
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date AND date BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as iuran_bln12,
+
+
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as bln_my1,
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as bln_my2,
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as bln_my3,
@@ -149,6 +163,20 @@
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as blnl12,
 
 
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as iuran_blnl1,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as iuran_blnl2,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as iuran_blnl3,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-31")) as iuran_blnl4,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-31")) as iuran_blnl5,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-31")) as iuran_blnl6,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-31")) as iuran_blnl7,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-31")) as iuran_blnl8,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-31")) as iuran_blnl9,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-31")) as iuran_blnl10,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-31")) as iuran_blnl11,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as iuran_blnl12,
+
+
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as blnl_my1,
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as blnl_my2,
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as blnl_my3,
@@ -163,6 +191,72 @@
         (SELECT sum(nominal)FROM `amara_t_iuran` WHERE pay_month_year BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as blnl_my12
 	    
 	    
+		');
+	}
+
+
+	public function get_data_pemasukan_pengeluaran(){
+		return $this->db->query('
+        SELECT 
+
+
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as yukl_blnl1,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as yukl_blnl2,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as yukl_blnl3,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-04-01") AND DATE_FORMAT(NOW(),"%Y-04-31")) as yukl_blnl4,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-05-01") AND DATE_FORMAT(NOW(),"%Y-05-31")) as yukl_blnl5,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-06-01") AND DATE_FORMAT(NOW(),"%Y-06-31")) as yukl_blnl6,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-07-01") AND DATE_FORMAT(NOW(),"%Y-07-31")) as yukl_blnl7,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-08-01") AND DATE_FORMAT(NOW(),"%Y-08-31")) as yukl_blnl8,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-09-01") AND DATE_FORMAT(NOW(),"%Y-09-31")) as yukl_blnl9,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-10-01") AND DATE_FORMAT(NOW(),"%Y-10-31")) as yukl_blnl10,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-11-01") AND DATE_FORMAT(NOW(),"%Y-11-31")) as yukl_blnl11,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as yukl_blnl12,
+
+
+		(SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-01-01") AND DATE_FORMAT(NOW(),"%Y-01-31")) as yuml_blnl1,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-02-01") AND DATE_FORMAT(NOW(),"%Y-02-31")) as yuml_blnl2,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-03-01") AND DATE_FORMAT(NOW(),"%Y-03-31")) as yuml_blnl3,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-04-01") AND DATE_FORMAT(NOW(),"%Y-04-31")) as yuml_blnl4,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-05-01") AND DATE_FORMAT(NOW(),"%Y-05-31")) as yuml_blnl5,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-06-01") AND DATE_FORMAT(NOW(),"%Y-06-31")) as yuml_blnl6,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-07-01") AND DATE_FORMAT(NOW(),"%Y-07-31")) as yuml_blnl7,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-08-01") AND DATE_FORMAT(NOW(),"%Y-08-31")) as yuml_blnl8,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-09-01") AND DATE_FORMAT(NOW(),"%Y-09-31")) as yuml_blnl9,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-10-01") AND DATE_FORMAT(NOW(),"%Y-10-31")) as yuml_blnl10,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-11-01") AND DATE_FORMAT(NOW(),"%Y-11-31")) as yuml_blnl11,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW(),"%Y-12-01") AND DATE_FORMAT(NOW(),"%Y-12-31")) as yuml_blnl12,
+
+
+
+		(SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as ukl_blnl1,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as ukl_blnl2,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as ukl_blnl3,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-31")) as ukl_blnl4,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-31")) as ukl_blnl5,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-31")) as ukl_blnl6,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-31")) as ukl_blnl7,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-31")) as ukl_blnl8,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-31")) as ukl_blnl9,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-31")) as ukl_blnl10,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-31")) as ukl_blnl11,
+        (SELECT sum(nominal) FROM `amara_t_pengeluaran`  WHERE `information` NOT LIKE "%iuran%" AND date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as ukl_blnl12,
+
+
+		(SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-01-31")) as uml_blnl1,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-02-31")) as uml_blnl2,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-03-31")) as uml_blnl3,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-04-31")) as uml_blnl4,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-05-31")) as uml_blnl5,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-06-31")) as uml_blnl6,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-07-31")) as uml_blnl7,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-08-31")) as uml_blnl8,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-09-31")) as uml_blnl9,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-10-31")) as uml_blnl10,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-11-31")) as uml_blnl11,
+        (SELECT sum(nominal) FROM `amara_t_pemasukan`  WHERE date BETWEEN DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-01") AND DATE_FORMAT(NOW() - INTERVAL 1 YEAR,"%Y-12-31")) as uml_blnl12
+
+
 		');
 	}
 

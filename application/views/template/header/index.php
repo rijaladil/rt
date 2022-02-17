@@ -66,16 +66,35 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cubes"></i>
-          <span>Administrasi</span>
+          <span>Data Warga</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           <?php if ( (in_array($this->session->userdata('level'), array(1,2))) ) { ?>
-          <a class="collapse-item" href="<?php echo base_url();?>index.php/warga/">Data Warga</a>
+          <a class="collapse-item" href="<?php echo base_url();?>index.php/warga/">Info Warga</a>
           <?php } ?>
+          </div>
+          
+
+
+        </div>
+      </li>
+     <?php } ?>
+
+
+      <!-- MARKETING -->
+     <?php if ( (in_array($this->session->userdata('level'), array(1,2))) ) { ?>  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo1">
+          <i class="fas fa-fw fa-cubes"></i>
+          <span>Keuangan</span>
+        </a>
+        <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
           <?php if ( (in_array($this->session->userdata('level'), array(1,2))) ) { ?>
-          <a class="collapse-item" href="<?php echo base_url();?>index.php/Iuran/">Iuran Warga</a>
+          <a class="collapse-item" href="<?php echo base_url();?>index.php/Iuran/">Iuran Warga</a></div>
           <?php } ?>
+          <div class="bg-white py-2 collapse-inner rounded">
           <?php if ( (in_array($this->session->userdata('level'), array(1))) ) { ?>
           <a class="collapse-item" href="<?php echo base_url();?>index.php/Pemasukan/">Pemasukan</a>
           <?php } ?>
@@ -83,6 +102,10 @@
           <a class="collapse-item" href="<?php echo base_url();?>index.php/Pengeluaran/">Pengeluaran</a>
           <?php } ?>
           </div>
+           <div class="bg-white py-2 collapse-inner rounded">
+          <?php if ( (in_array($this->session->userdata('level'), array(1))) ) { ?>
+          <a class="collapse-item" href="<?php echo base_url();?>index.php/Jurnal/">Jurnal</a></div>
+          <?php } ?>
           
 
 

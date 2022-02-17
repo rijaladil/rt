@@ -37,21 +37,21 @@
 												<td>
 													<!-- fungsi status -->
 									                  <?php if(date('Y-m', strtotime($i->pay_month_year))>date('Y-m')){ ?> 
-																			<a class="btn btn-success btn-circle btn-sm">
-																				<span class="icon text-white-50">
-														  						<i class="fa fa-arrow-up"></i>
+														<a class="btn btn-success btn-circle btn-sm">
+															<span class="icon text-white-50">
+									  						<i class="fa fa-arrow-up"></i>
 									                    	</span>
 									                    </<a>
-																		<?php } elseif  (date('Y-m', strtotime($i->pay_month_year))==date('Y-m')){ ?>
-																			<a class="btn btn-warning btn-circle btn-sm">
-																				<span class="icon text-white-50">
-														  						<i class="fa fa-check"></i>
+													<?php } elseif  (date('Y-m', strtotime($i->pay_month_year))==date('Y-m')){ ?>
+														<a class="btn btn-warning btn-circle btn-sm">
+															<span class="icon text-white-50">
+									  						<i class="fa fa-check"></i>
 									                    	</span>
 									                    </<a>
-																		<?php } else { ?>
-																			<a class="btn btn-danger btn-circle btn-sm">
-																					<span class="icon text-white-50">
-														  						<i class="fa fa-arrow-down"></i>
+												<?php } else { ?>
+													<a class="btn btn-danger btn-circle btn-sm">
+															<span class="icon text-white-50">
+								  						<i class="fa fa-arrow-down"></i>
 									                    	</span>
 																			</<a>
 																		<?php } ?>
@@ -66,12 +66,12 @@
 												
 												<td class="row justify-content-center">	
 																											                  
-					                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
-					                  	
-					                    <span class="icon text-white-50">
-					                      <i class="fas fa-edit"></i>
-					                    </span>					                    
-					                  </a>
+								                  <a href="<?php echo base_url(). 'index.php/iuran/show/'.$i->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+								                  	
+								                    <span class="icon text-white-50">
+								                      <i class="fas fa-edit"></i>
+								                    </span>					                    
+								                  </a>
 
 												</td>
 											</tr>
@@ -95,7 +95,7 @@
             </div>		 
 			 <div class="card-body">
               	<div class="table-responsive">		
-				    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+				    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
 	                 <thead>
 						<tr>
 						<th width="2%">No</th>
@@ -111,6 +111,7 @@
 					 </thead>
 					 <tbody>
 							<?php 
+							$total = 0;
 							$id = 1;
 							foreach($iuran_now as $in){ 
 							?>
@@ -124,22 +125,35 @@
 								<td><?php echo $in->keterangan ?></td>
 								<td class="row justify-content-center">																	
 																		
-                  <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
-                    <span class="icon text-white-50">
-					  					<i class="fa fa-edit"></i>
-                    </span>
-                  </a>
-                  &#160;
-                   <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$in->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                    </span>					                    
-                  </a>						
+						          <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
+						            <span class="icon text-white-50">
+									  					<i class="fa fa-edit"></i>
+						            </span>
+						          </a>
+						          &#160;
+						           <a href="<?php echo base_url(). 'index.php/iuran/delete/'.$in->id ; ?>" class="btn btn-danger btn-circle btn-sm"  >
+						            <span class="icon text-white-50">
+						              <i class="fas fa-trash"></i>
+						            </span>					                    
+						          </a>						
 
 									</td>
 							</tr>
+							<?php $total = $total + $in->nominal; ?>
 							<?php } ?>
 						</tbody>
+						<tfoot>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>TOTAL</th>
+							<th><?php  echo  number_format($total ,0,',','.');?></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</tfoot>
 					</table>
 			   	</div>
 			</div>
