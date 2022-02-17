@@ -1,4 +1,5 @@
 
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -14,16 +15,16 @@
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card border-left-primary shadow h-85 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                               Saldo Kas</div>
+                               Saldo Kas & Bank</div>
                                <?php 
                             foreach($dashboard_saldo as $s){ 
                             ?>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->saldo_kas ,0,',','.') ?></div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->saldo_kas ,0,',','.') ?></div>
                             <?php } ?>
                         </div>
                         <div class="col-auto">
@@ -33,10 +34,10 @@
                 </div>
             </div>
         </div>
-
+<!--  -->
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
+            <div class="card border-left-success shadow h-85 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -45,7 +46,7 @@
                                  <?php 
                                 foreach($dashboard_saldo as $s){ 
                                 ?> 
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->pemasukan ,0,',','.') ?></div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->pemasukan ,0,',','.') ?></div>
                                 <?php } ?>
                         </div>
                         <div class="col-auto">
@@ -58,7 +59,7 @@
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2">
+            <div class="card border-left-info shadow h-85 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -68,16 +69,10 @@
                                 <div class="col-auto">
                                     <?php 
                                     foreach($dashboard_saldo as $s){ 
-                                    ?>-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo number_format($s->pengeluaran ,0,',','.') ?></div>
+                                    ?>
+                                    <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo number_format($s->pengeluaran ,0,',','.') ?></div>
                                      <?php } ?>
                                 </div>
-                               <!--  <div class="col">
-                                    <div class="progress progress-sm mr-2">
-                                        <div class="progress-bar bg-info" role="progressbar"
-                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                         <div class="col-auto">
@@ -90,7 +85,7 @@
 
         <!-- Pending Requests Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card border-left-warning shadow h-85 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -100,9 +95,7 @@
                             <?php 
                             foreach($dashboard_saldo as $s){ 
                             ?>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">KK : <?php echo number_format($s->qty_iuran ,0,',','.') ?> = <?php echo number_format($s->iuran ,0,',','.') ?>  </div>
-                             <div class=" mb-1 text-gray-800">Iuran Masuk Selama <?php echo date("F Y");?> 
-                             <br> <b>Bln Bayar : <?php echo number_format($s->qty_iuran_per_month ,0,',','.') ?> = <?php echo number_format($s->iuran_per_month ,0,',','.') ?>  </b></div>
+                            <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800">PD (<?php echo number_format($s->qty_iuran ,0,',','.') ?>) : <?php echo number_format($s->iuran ,0,',','.') ?> | PMY (<?php echo number_format($s->qty_iuran_per_month ,0,',','.') ?>) : <?php echo number_format($s->iuran_per_month ,0,',','.') ?></div>
                              <?php } ?>
                         </div>
                         <div class="col-auto">
@@ -117,10 +110,11 @@
 
 
 <!-- /.container-fluid -->
-    <div class="row>">
-         <div class="col-xl-12 col-lg-7">
-            <!-- Area Chart -->
-            <div class="card shadow mb-4">
+
+    
+    <div class="row">
+         <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">This year</h6>
                 </div>
@@ -133,14 +127,23 @@
                     <?php  foreach($iuran_bln as $ib){  
                         $rn=65000;
                         $rp=75000;
-                        $month = date('m');
+                        $month = date('n');
 
-                        $ibbln = $ib->bln1 + $ib->bln2 + $ib->bln3 + $ib->bln4 + $ib->bln5 + $ib->bln6 + $ib->bln7 + $ib->bln8 + $ib->bln9 + $ib->bln10 + $ib->bln11 + $ib->bln12;
-                        $ibbln_month = $ibbln / $month;
+                        $ibbln = array($ib->bln1,$ib->bln2,$ib->bln3,$ib->bln4,$ib->bln5,$ib->bln6,$ib->bln7,$ib->bln8,$ib->bln9,$ib->bln10,$ib->bln11,$ib->bln12);
+                        $ibbln_month = array_sum($ibbln) / $month;
                         $ibbln_month_rp = $ibbln_month / $rp;
 
-                        $ibbln_my = $ib->bln_my1 + $ib->bln_my2 + $ib->bln_my3 + $ib->bln_my4 + $ib->bln_my5 + $ib->bln_my6 + $ib->bln_my7 + $ib->bln_my8 + $ib->bln_my9 + $ib->bln_my10 + $ib->bln_my11 + $ib->bln_my12;
-                        $ibbln_my_month = $ibbln_my / $month;
+
+                        $ibbln_my= array();
+                        $ibbln_my = array($ib->bln_my1,$ib->bln_my2,$ib->bln_my3,$ib->bln_my4,$ib->bln_my5,$ib->bln_my6,$ib->bln_my7,$ib->bln_my8,$ib->bln_my9,$ib->bln_my10,$ib->bln_my11,$ib->bln_my12);
+
+                        $jum = 0;
+                        for ($i=0; $i<=$month; $i++){
+                            $jum = $jum + $ibbln_my[$i];
+                        }
+                        $jum;
+
+                        $ibbln_my_month = $jum / $month;
                         $ibbln_my_month_rp = $ibbln_my_month / $rp;
 
                         echo "Average Pay Date : <b>  ";
@@ -155,8 +158,9 @@
                      
                 </div>
             </div>
-
-            <div class="card shadow mb-4">
+        </div>
+        <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Last year</h6>
                 </div>
@@ -187,6 +191,51 @@
                         echo number_format($ibblln_my_month);
                         echo "</b> | Person : <b>".number_format($ibblln_my_month_rp)."</b> | Ability : <b> ". number_format( $ibblln_my_month_rp * $rn );
                         echo "</b>";
+
+
+
+                    }?> 
+                     </b>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+     <div class="row">
+         <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Pemasukan dan Pengeluaran Lain This year</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart3"></canvas>
+                    </div>
+                    <hr>
+                    
+                    <?php  foreach($pemasukan_pengeluaran as $pp){  
+
+                    }?> 
+                     
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Pemasukan dan Pengeluaran Lain Last year</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart4"></canvas>
+                    </div>
+                    <hr>
+                    
+                    <?php  foreach($pemasukan_pengeluaran as $pp){  
+
 
 
 
@@ -269,7 +318,7 @@
                     <!-- Card Body -->
                     <?php  foreach($tot_summary as $dsum){  ?>
                     <div class="card-body">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
                             <tr>
                                 <th>Informasi</th>
                                 <td width="15%" align="right">Nominal</td>
@@ -480,7 +529,16 @@
 
 
 <script type="text/javascript">
-    
+
+function numFormatter(num) {
+    if(num > 999 && num < 1000000){
+        return (num/1000).toFixed(1) + 'K'; // convert to K for number from > 1000 < 1 million 
+    }else if(num >= 1000000){
+        return (num/1000000).toFixed(1) + 'M'; // convert to M for number from > 1 million 
+    }else if(num < 900){
+        return num; // if value < 1000, nothing to do
+    }
+}
     // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -519,8 +577,8 @@ var myBarChart = new Chart(ctx, {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
       label: "Pay Date",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
+      backgroundColor: "#2e59d9",
+      hoverBackgroundColor: "#4e73df",
       borderColor: "#4e73df",
        
       data: ["<?php echo $ib->bln1; ?>", 
@@ -534,12 +592,12 @@ var myBarChart = new Chart(ctx, {
       "<?php echo $ib->bln9;?>",
       "<?php echo $ib->bln10;?>",
       "<?php echo $ib->bln11;?>",
-      "<?php echo $ib->bln12;?>"],
+      "<?php echo $ib->bln12;?>"]
     },
     {
       label: "Pay Mont Year",
-      backgroundColor: "#ff80b3",
-      hoverBackgroundColor: "#ff0066",
+      backgroundColor: "#ff0066",
+      hoverBackgroundColor: "#ff80b3",
       borderColor: "#99003d",
        
       data: ["<?php echo $ib->bln_my1; ?>", 
@@ -553,7 +611,26 @@ var myBarChart = new Chart(ctx, {
       "<?php echo $ib->bln_my9;?>",
       "<?php echo $ib->bln_my10;?>",
       "<?php echo $ib->bln_my11;?>",
-      "<?php echo $ib->bln_my12;?>"],
+      "<?php echo $ib->bln_my12;?>"]
+    },
+    {
+      label: "Pay Iuran RW",
+      backgroundColor: "#333333",
+      hoverBackgroundColor: "#8c8c8c",
+      borderColor: "#0d0d0d",
+       
+      data: ["<?php echo $ib->iuran_bln1; ?>", 
+      "<?php echo $ib->iuran_bln2;?>", 
+      "<?php echo $ib->iuran_bln3;?>",
+      "<?php echo $ib->iuran_bln4;?>",
+      "<?php echo $ib->iuran_bln5;?>",
+      "<?php echo $ib->iuran_bln6;?>",
+      "<?php echo $ib->iuran_bln7;?>",
+      "<?php echo $ib->iuran_bln8;?>",
+      "<?php echo $ib->iuran_bln9;?>",
+      "<?php echo $ib->iuran_bln10;?>",
+      "<?php echo $ib->iuran_bln11;?>",
+      "<?php echo $ib->iuran_bln12;?>"]
     }],
   },
   options: {
@@ -587,7 +664,7 @@ var myBarChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return 'Rp' + number_format(value);
+            return 'Rp ' + numFormatter(value);
           }
         },
         gridLines: {
@@ -627,10 +704,7 @@ var myBarChart = new Chart(ctx, {
 '<?php } ?>'
 
 
-
 // ---------------------------------
-
-
 // Bar Chart Example
 '<?php  foreach($iuran_bln_last as $ibl){  ?>'
 var ctx = document.getElementById("myBarChart2");
@@ -640,8 +714,8 @@ var myBarChart2 = new Chart(ctx, {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [{
       label: "Pay Date",
-      backgroundColor: "#33cc33",
-      hoverBackgroundColor: "#009933",
+      backgroundColor: "#009933",
+      hoverBackgroundColor: "#33cc33",
       borderColor: "#4e73df",
        
       data: [ "<?php echo $ibl->blnl1; ?>", 
@@ -658,10 +732,10 @@ var myBarChart2 = new Chart(ctx, {
       "<?php echo $ibl->blnl12;?>"],
     },
     {
-      label: "Pay Month Year",
-      backgroundColor: "#660066",
-      hoverBackgroundColor: "#cc00cc",
-      borderColor: "#4d004d",
+       label: "Pay Mont Year",
+      backgroundColor: "#ff0066",
+      hoverBackgroundColor: "#ff80b3",
+      borderColor: "#99003d",
        
       data: [ "<?php echo $ibl->blnl_my1; ?>", 
       "<?php echo $ibl->blnl_my2;?>", 
@@ -675,6 +749,25 @@ var myBarChart2 = new Chart(ctx, {
       "<?php echo $ibl->blnl_my10;?>",
       "<?php echo $ibl->blnl_my11;?>",
       "<?php echo $ibl->blnl_my12;?>"],
+    },
+    {
+      label: "Pay Iuran RW",
+      backgroundColor: "#333333",
+      hoverBackgroundColor: "#8c8c8c",
+      borderColor: "#0d0d0d",
+       
+      data: ["<?php echo $ibl->iuran_blnl1; ?>", 
+      "<?php echo $ibl->iuran_blnl2;?>", 
+      "<?php echo $ibl->iuran_blnl3;?>",
+      "<?php echo $ibl->iuran_blnl4;?>",
+      "<?php echo $ibl->iuran_blnl5;?>",
+      "<?php echo $ibl->iuran_blnl6;?>",
+      "<?php echo $ibl->iuran_blnl7;?>",
+      "<?php echo $ibl->iuran_blnl8;?>",
+      "<?php echo $ibl->iuran_blnl9;?>",
+      "<?php echo $ibl->iuran_blnl10;?>",
+      "<?php echo $ibl->iuran_blnl11;?>",
+      "<?php echo $ibl->iuran_blnl12;?>"]
     }],
   },
   options: {
@@ -708,7 +801,7 @@ var myBarChart2 = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return 'Rp' + number_format(value);
+            return 'Rp ' + numFormatter(value);
           }
         },
         gridLines: {
@@ -746,6 +839,243 @@ var myBarChart2 = new Chart(ctx, {
 });
 
 '<?php } ?>'
+
+// ---------------------------------
+// Bar Chart Example
+'<?php  foreach($pemasukan_pengeluaran as $pp){  ?>'
+var ctx = document.getElementById("myBarChart3");
+var myBarChart3 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [{
+      label: "Pemasukan",
+      backgroundColor: "#2e59d9",
+      hoverBackgroundColor: "#4e73df",
+      borderColor: "#4e73df",
+       
+      data: [ "<?php echo $pp->yuml_blnl1; ?>", 
+      "<?php echo $pp->yuml_blnl2;?>", 
+      "<?php echo $pp->yuml_blnl3;?>",
+      "<?php echo $pp->yuml_blnl4;?>",
+      "<?php echo $pp->yuml_blnl5;?>",
+      "<?php echo $pp->yuml_blnl6;?>",
+      "<?php echo $pp->yuml_blnl7;?>",
+      "<?php echo $pp->yuml_blnl8;?>",
+      "<?php echo $pp->yuml_blnl9;?>",
+      "<?php echo $pp->yuml_blnl10;?>",
+      "<?php echo $pp->yuml_blnl11;?>",
+      "<?php echo $pp->yuml_blnl12;?>"],
+    },{
+      label: "Pengeluaran",
+      backgroundColor: "#333333",
+      hoverBackgroundColor: "#8c8c8c",
+      borderColor: "#0d0d0d",
+       
+      data: [ "<?php echo $pp->yukl_blnl1; ?>", 
+      "<?php echo $pp->yukl_blnl2;?>", 
+      "<?php echo $pp->yukl_blnl3;?>",
+      "<?php echo $pp->yukl_blnl4;?>",
+      "<?php echo $pp->yukl_blnl5;?>",
+      "<?php echo $pp->yukl_blnl6;?>",
+      "<?php echo $pp->yukl_blnl7;?>",
+      "<?php echo $pp->yukl_blnl8;?>",
+      "<?php echo $pp->yukl_blnl9;?>",
+      "<?php echo $pp->yukl_blnl10;?>",
+      "<?php echo $pp->yukl_blnl11;?>",
+      "<?php echo $pp->yukl_blnl12;?>"],
+    }
+    ],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 12
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          maxTicksLimit: 5,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return 'Rp ' + numFormatter(value);
+          }
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel + ': Rp ' + number_format(tooltipItem.yLabel);
+        }
+      }
+    },
+  }
+});
+
+'<?php } ?>'
+
+// ---------------------------------
+// Bar Chart Example
+'<?php  foreach($pemasukan_pengeluaran as $pp){  ?>'
+var ctx = document.getElementById("myBarChart4");
+var myBarChart4 = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets: [ {
+      label: "Pemasukan",
+      backgroundColor: "#009933",
+      hoverBackgroundColor: "#33cc33",
+      borderColor: "#4e73df",
+       
+      data: [ "<?php echo $pp->uml_blnl1; ?>", 
+      "<?php echo $pp->uml_blnl2;?>", 
+      "<?php echo $pp->uml_blnl3;?>",
+      "<?php echo $pp->uml_blnl4;?>",
+      "<?php echo $pp->uml_blnl5;?>",
+      "<?php echo $pp->uml_blnl6;?>",
+      "<?php echo $pp->uml_blnl7;?>",
+      "<?php echo $pp->uml_blnl8;?>",
+      "<?php echo $pp->uml_blnl9;?>",
+      "<?php echo $pp->uml_blnl10;?>",
+      "<?php echo $pp->uml_blnl11;?>",
+      "<?php echo $pp->uml_blnl12;?>"],
+    },{
+      label: "Pengeluaran",
+      backgroundColor: "#333333",
+      hoverBackgroundColor: "#8c8c8c",
+      borderColor: "#0d0d0d",
+       
+      data: [ "<?php echo $pp->ukl_blnl1; ?>", 
+      "<?php echo $pp->ukl_blnl2;?>", 
+      "<?php echo $pp->ukl_blnl3;?>",
+      "<?php echo $pp->ukl_blnl4;?>",
+      "<?php echo $pp->ukl_blnl5;?>",
+      "<?php echo $pp->ukl_blnl6;?>",
+      "<?php echo $pp->ukl_blnl7;?>",
+      "<?php echo $pp->ukl_blnl8;?>",
+      "<?php echo $pp->ukl_blnl9;?>",
+      "<?php echo $pp->ukl_blnl10;?>",
+      "<?php echo $pp->ukl_blnl11;?>",
+      "<?php echo $pp->ukl_blnl12;?>"],
+    }
+   ],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 12
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          maxTicksLimit: 5,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return 'Rp ' + numFormatter(value);
+          }
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return datasetLabel + ': Rp ' + number_format(tooltipItem.yLabel);
+        }
+      }
+    },
+  }
+});
+
+'<?php } ?>'
+// ---------------------------------
+
+
 
 </script>
 
