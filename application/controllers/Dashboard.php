@@ -38,6 +38,8 @@ class dashboard extends CI_Controller{
 	    $data['iuran_bln'] = $this->t_dashboard->get_data_iuran_tahun()->result();
 	    $data['iuran_bln_last'] = $this->t_dashboard->get_data_iuran_tahun_last()->result();
 
+	    $data['pemasukan_pengeluaran'] = $this->t_dashboard->get_data_pemasukan_pengeluaran()->result();
+
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
 		$this->load->view('pages/dashboard/index',$data);

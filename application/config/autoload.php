@@ -146,6 +146,7 @@ $autoload['model'] = array(
 	't_iuran_person',
 	't_pemasukan',
 	't_dashboard',
-	't_pengeluaran'
+	't_pengeluaran',
+	't_jurnal'
 
 );

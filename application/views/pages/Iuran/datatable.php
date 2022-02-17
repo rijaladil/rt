@@ -37,21 +37,21 @@
 												<td>
 													<!-- fungsi status -->
 									                  <?php if(date('Y-m', strtotime($i->pay_month_year))>date('Y-m')){ ?> 
-																			<a class="btn btn-success btn-circle btn-sm">
-																				<span class="icon text-white-50">
-														  						<i class="fa fa-arrow-up"></i>
+														<a class="btn btn-success btn-circle btn-sm">
+															<span class="icon text-white-50">
+									  						<i class="fa fa-arrow-up"></i>
 									                    	</span>
 									                    </<a>
-																		<?php } elseif  (date('Y-m', strtotime($i->pay_month_year))==date('Y-m')){ ?>
-																			<a class="btn btn-warning btn-circle btn-sm">
-																				<span class="icon text-white-50">
-														  						<i class="fa fa-check"></i>
+													<?php } elseif  (date('Y-m', strtotime($i->pay_month_year))==date('Y-m')){ ?>
+														<a class="btn btn-warning btn-circle btn-sm">
+															<span class="icon text-white-50">
+									  						<i class="fa fa-check"></i>
 									                    	</span>
 									                    </<a>
-																		<?php } else { ?>
-																			<a class="btn btn-danger btn-circle btn-sm">
-																					<span class="icon text-white-50">
-														  						<i class="fa fa-arrow-down"></i>
+												<?php } else { ?>
+													<a class="btn btn-danger btn-circle btn-sm">
+															<span class="icon text-white-50">
+								  						<i class="fa fa-arrow-down"></i>
 									                    	</span>
 																			</<a>
 																		<?php } ?>
@@ -111,6 +111,7 @@
 					 </thead>
 					 <tbody>
 							<?php 
+							$total = 0;
 							$id = 1;
 							foreach($iuran_now as $in){ 
 							?>
@@ -138,8 +139,21 @@
 
 									</td>
 							</tr>
+							<?php $total = $total + $in->nominal; ?>
 							<?php } ?>
 						</tbody>
+						<tfoot>
+						<tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th>TOTAL</th>
+							<th><?php  echo  number_format($total ,0,',','.');?></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</tfoot>
 					</table>
 			   	</div>
 			</div>
