@@ -79,12 +79,14 @@ class iuran extends CI_Controller{
 	 	$pay_month_year = $this->input->post('pay_month_year');
 	 	$nominal = $this->input->post('nominal');
 	 	$keterangan = $this->input->post('keterangan');
+	 	$id_coa = $this->input->post('id_coa');
 
 		$data = array(
 			'pay_date' => $pay_date,
 			'pay_month_year' => $pay_month_year,
 			'nominal' => $nominal,
 			'keterangan' => $keterangan,
+			'id_coa' => $id_coa,
 			'editDate'=>date('Y-m-d H:i:s')
 		);
 

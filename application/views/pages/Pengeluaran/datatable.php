@@ -30,7 +30,7 @@
 							?>
 							<tr>
 								<td><?php echo $id++ ?></td>
-								<td><?php echo $p->id_coa ?></td>
+								<td><?php echo $p->no_rek ?></td>
 								<td><?php echo $p->date ?></td>
 								<td><?php echo $p->information ?></td>
 								<td><?php echo number_format($p->nominal ,0,',','.')?></td>
@@ -74,7 +74,12 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">COA:</label>								
-										<input class="form-control" id="inputdefault" type="text" name="id_coa" >		
+										<select class="form-control"  id="id_coa"  name="id_coa" style="width:100%" required>
+										<option value="">PILIH</option>							
+										<?php foreach($coa as $c){ ?>
+											<option value="<?php echo $c->id ?>"> <?php echo $c->no_rek ?> - <?php echo $c->name ?></option>
+										<?php } ?>
+										</select>		
 									</div>
 								</td>
 							</tr>
@@ -82,7 +87,7 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">DATE:</label>
-										<input class="form-control" id="inputdefault" type="date" name="date" required>
+										<input class="form-control" id="inputdefault" type="date" name="date" required value="<?php echo date('Y-m-d')?>">
 									</div>
 								</td>
 							</tr>
@@ -143,7 +148,15 @@
 									
 									<label for="inputdefault">COA:</label>			
 									<input type="hidden" name="id" value="<?php echo $p->id ?>">					
-									<input class="form-control" id="inputdefault" type="text" name="id_Coa"  value="<?php echo $p->id_coa ?>"><br>
+									<select class="form-control"  id="id_coa"  name="id_coa" style="width:100%" required>
+										<?php foreach($coa as $c){ 
+											if($p->id_coa==$c->id ){?>
+										<option value="<?php echo $p->id_coa ?>"> <?php echo $c->no_rek ?> - <?php echo $c->name ?></option>	
+										<?php } }?>						
+										<?php foreach($coa as $c){ ?>
+											<option value="<?php echo $c->id ?>"> <?php echo $c->no_rek ?> - <?php echo $c->name ?></option>
+										<?php } ?>
+										</select>	
 									</div>
 								</td>
 							<tr>

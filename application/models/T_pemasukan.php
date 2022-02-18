@@ -2,7 +2,23 @@
 
  class t_pemasukan extends CI_Model{
 	public function get_data(){
-		return $this->db->query('select * from  amara_t_pemasukan ORDER BY date DESC');
+		return $this->db->query('select p.id,
+										c.no_rek,
+										p.id_coa,
+										p.date,
+										p.information,
+										p.nominal,
+										p.note 
+							     from  amara_t_pemasukan p
+							     LEFT JOIN amara_m_coa c
+							     ON p.id_coa = c.id
+							     ORDER BY date DESC');
+	}
+
+
+
+public function get_data_coa(){
+		return $this->db->query('SELECT * FROM amara_m_coa');
 	}
 
 	function input_data($data,$table){

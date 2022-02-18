@@ -121,7 +121,16 @@
 								<td><?php echo $in->address_domisili ?></td>
 								<td><?php echo $in->pay_date ?></td>
 								<td><?php echo  date('Y-m', strtotime($in->pay_month_year)) ?></td>
-								<td><?php echo number_format($in->nominal ,0,',','.')?></td>
+								<td><?php if($in->id_coa == 2) {?>
+									<a class="btn btn-success btn-icon-split btn-sm">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        <span class="text text-white"><?php echo number_format($in->nominal ,0,',','.')?></span>
+                                    </a>  <?php }else {?>
+											<?php echo number_format($in->nominal ,0,',','.')?>
+										<?php } ?>
+								</td>
 								<td><?php echo $in->keterangan ?></td>
 								<td class="row justify-content-center">																	
 																		
@@ -217,6 +226,7 @@
 									</div>
 								</td>
 							</tr>
+							
 						
 						</table>
 
@@ -287,6 +297,16 @@
 									<div class="form-group">
 										<label for="inputdefault">KETERANGAN: </label>
 										<input class="form-control" id="inputdefault" type="text"  name="keterangan">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="form-group">
+										<div class="form-check form-check-inline">
+										  <input class="form-check-input" type="checkbox" id="id_coa" name="id_coa" value="2" <?php if($i->id_coa==2){?>checked<?php }?>>
+										  <label class="form-check-label" for="inlineCheckbox1">TRANSFER BANK</label>
+										</div>
 									</div>
 								</td>
 							</tr>

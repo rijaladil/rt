@@ -28,6 +28,7 @@ class pemasukan extends CI_Controller{
 	// halaman utama 
 	public function index(){
 		$data['pemasukan'] = $this->t_pemasukan->get_data()->result();
+		$data['coa'] = $this->t_pemasukan->get_data_coa()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
 		$this->load->view('pages/Pemasukan/datatable',$data);

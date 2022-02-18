@@ -28,6 +28,7 @@ class pengeluaran extends CI_Controller{
 	// halaman utama 
 	public function index(){
 		$data['pengeluaran'] = $this->t_pengeluaran->get_data()->result();
+		$data['coa'] = $this->t_pengeluaran->get_data_coa()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
 		$this->load->view('pages/Pengeluaran/datatable',$data);

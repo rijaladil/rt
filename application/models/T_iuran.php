@@ -19,7 +19,8 @@
 		return $this->db->query('SELECT 
 								iuran.id, 
 								warga.name, 
-								warga.address_domisili, 
+								warga.address_domisili,
+								iuran.id_coa,
 								iuran.id_warga,
 							    iuran.pay_date, 
 							    iuran.pay_month_year, 
