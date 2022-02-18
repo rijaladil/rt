@@ -24,7 +24,11 @@
                                <?php 
                             foreach($dashboard_saldo as $s){ 
                             ?>
-                            <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->saldo_kas ,0,',','.') ?></div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><?php echo number_format($s->saldo_kas ,0,',','.') ?> |
+                            Bank :  <?php echo number_format($s->saldo_bank ,0,',','.') ?> - 
+                            Kas : <?php echo number_format(($s->saldo_kas - $s->saldo_bank)  ,0,',','.') ?> </div>
+                           
+
                             <?php } ?>
                         </div>
                         <div class="col-auto">

@@ -7,6 +7,10 @@
 			(SELECT SUM(nominal) from amara_t_iuran)+ 
 			(SELECT SUM(nominal) from amara_t_pemasukan)- 
 			(SELECT SUM(nominal) from amara_t_pengeluaran)) as saldo_kas,
+			( 
+			(SELECT SUM(nominal) from amara_t_iuran WHERE id_coa = 2)+ 
+			(SELECT SUM(nominal) from amara_t_pemasukan WHERE id_coa = 2)- 
+			(SELECT SUM(nominal) from amara_t_pengeluaran WHERE id_coa = 2)) as saldo_bank,
 			(SELECT sum(nominal) FROM `amara_t_pemasukan` WHERE MONTH(date) = DATE_FORMAT(NOW(), "%m") AND YEAR(date) = DATE_FORMAT(NOW(), "%Y")) as pemasukan,
 			(SELECT sum(nominal) FROM `amara_t_pengeluaran` WHERE MONTH(date) = DATE_FORMAT(NOW(), "%m") AND YEAR(date) = DATE_FORMAT(NOW(), "%Y")) as pengeluaran,
 			(SELECT sum(nominal) FROM `amara_t_iuran` WHERE MONTH(pay_month_year) = DATE_FORMAT(NOW(), "%m") AND YEAR(pay_month_year) = DATE_FORMAT(NOW(), "%Y")) as iuran,
