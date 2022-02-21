@@ -8,7 +8,7 @@ class lastpay extends CI_Controller{
 	function __construct(){
 		parent::__construct();	
 		$this->check_isvalidated();	
-		$this->load->model('m_data_warga');
+		$this->load->model('t_iuran');
 		$this->load->helper('url');
 	}
 
@@ -25,7 +25,7 @@ class lastpay extends CI_Controller{
         }
 	}
 	public function index(){
-		$data['iuran'] = $this->t_iuran->get_data()->result();
+		$data['iuran'] = $this->t_iuran->get_data_iuran_all()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
 		$this->load->view('pages/Lastpay/datatable',$data);

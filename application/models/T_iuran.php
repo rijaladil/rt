@@ -15,6 +15,22 @@
 		');
 	}
 
+
+	public function get_data_iuran_all(){
+		return $this->db->query('
+						        SELECT * 
+						        FROM amara_t_iuran 
+								LEFT JOIN amara_m_warga 
+								ON amara_t_iuran.id_warga = amara_m_warga.id 
+								WHERE amara_m_warga.status_retribusi = 1
+						       
+							    
+	    
+		');
+	}
+
+
+
   public function get_data_realtime(){
 		return $this->db->query('SELECT 
 								iuran.id, 

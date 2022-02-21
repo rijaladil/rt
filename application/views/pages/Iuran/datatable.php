@@ -133,7 +133,7 @@
 								</td>
 								<td><?php echo $in->keterangan ?></td>
 								<td class="row justify-content-center">																	
-																		
+								<?php if ( (in_array($this->session->userdata('level'), array(1))) ) { ?>									
 						          <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
 						            <span class="icon text-white-50">
 									  					<i class="fa fa-edit"></i>
@@ -144,7 +144,8 @@
 						            <span class="icon text-white-50">
 						              <i class="fas fa-trash"></i>
 						            </span>					                    
-						          </a>						
+						          </a>	
+						          <?php } ?>					
 
 									</td>
 							</tr>
