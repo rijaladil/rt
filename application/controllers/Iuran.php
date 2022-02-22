@@ -119,6 +119,7 @@ class iuran extends CI_Controller{
 
 	public function show($id=''){
 		$data['show'] = $this->t_iuran->get_data_show($id);
+		$data['show_last_pay'] = $this->t_iuran->get_data_show_last_pay($id);
 		$data['warga'] = $this->m_data_warga->get_data_active()->result();
 		$data['id'] = $id;
 		$this->load->view('template/header/index');

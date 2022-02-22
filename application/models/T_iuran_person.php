@@ -21,7 +21,7 @@
 
 
 		$query = $this->db->query("SELECT * FROM amara_m_month where pay_month_year NOT IN 
-			(SELECT pay_month_year FROM amara_t_iuran WHERE id_warga = $id)
+			(SELECT pay_date, pay_month_year FROM amara_t_iuran WHERE id_warga = $id)
 			 AND pay_month_year BETWEEN 
 			 (SELECT start_living from amara_m_warga where id = $id) 
 			 AND NOW()");
@@ -29,7 +29,18 @@
 		return $query->result();
 
 	}
-	
+
+public function get_data_show_last_pay($id){
+
+
+		$query = $this->db->query("SELECT * FROM amara_m_month where pay_month_year IN 
+			(SELECT pay_date, pay_month_year FROM amara_t_iuran WHERE id_warga = $id)
+			");
+
+		return $query->result();
+
+	}
+
 	function input_data($data,$table){
 		$this->db->insert($table,$data);
 	}

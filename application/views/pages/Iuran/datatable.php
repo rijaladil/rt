@@ -60,7 +60,7 @@
 												<td><?php echo $i->name ?></td>
 												<td><?php echo $i->address_domisili ?></td>
 												<td><?php echo $i->pay_date ?></td>
-												<td><B><?php echo  date('Y-m', strtotime($i->pay_month_year)) ?></B> </td>
+												<td><B><?php echo  date('Y F', strtotime($i->pay_month_year)) ?></B> </td>
 												<td><?php echo number_format($i->nominal ,0,',','.')?></td>
 												<td><?php echo $i->keterangan ?></td>
 												
@@ -95,7 +95,7 @@
             </div>		 
 			 <div class="card-body">
               	<div class="table-responsive">		
-				    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+				    <table class="display nowrap" id="dataTable2" width="100%" cellspacing="0">
 	                 <thead>
 						<tr>
 						<th width="2%">No</th>
@@ -120,7 +120,7 @@
 								<td><?php echo $in->name ?></td>
 								<td><?php echo $in->address_domisili ?></td>
 								<td><?php echo $in->pay_date ?></td>
-								<td><?php echo  date('Y-m', strtotime($in->pay_month_year)) ?></td>
+								<td><?php echo  date('Y F', strtotime($in->pay_month_year)) ?></td>
 								<td><?php if($in->id_coa == 2) {?>
 									<a class="btn btn-success btn-icon-split btn-sm">
                                         <span class="icon text-white-50">
@@ -131,7 +131,7 @@
 											<?php echo number_format($in->nominal ,0,',','.')?>
 										<?php } ?>
 								</td>
-								<td><?php echo $in->keterangan ?></td>
+								<td><?php echo $in->keterangan ?> | <?php echo $in->createDate ?></td>
 								<td class="row justify-content-center">																	
 								<?php if ( (in_array($this->session->userdata('level'), array(1))) ) { ?>									
 						          <a href="#" class="btn btn-success btn-circle btn-sm" data-toggle="modal" data-target="#Fedit<?php echo $in->id ;?>" >
@@ -297,17 +297,20 @@
 								<td>
 									<div class="form-group">
 										<label for="inputdefault">KETERANGAN: </label>
-										<input class="form-control" id="inputdefault" type="text"  name="keterangan">
+										<input class="form-control" id="inputdefault" type="text"  name="keterangan" value="<?php echo $i->keterangan;?>">
 									</div>
 								</td>
 							</tr>
+					
 							<tr>
 								<td>
-									<div class="form-group">
-										<div class="form-check form-check-inline">
-										  <input class="form-check-input" type="checkbox" id="id_coa" name="id_coa" value="2" <?php if($i->id_coa==2){?>checked<?php }?>>
-										  <label class="form-check-label" for="inlineCheckbox1">TRANSFER BANK</label>
-										</div>
+									<div class="form-group ">
+										<label for="inputdefault">Status Transfer:</label>
+										<select class="form-control" name="id_coa">
+											<option value="<?php $i->id_coa ?>"> <?php if($i->id_coa==2){?>BANK<?php }else{?>KAS<?php }?> </option>
+											<option value="1">KAS</option>
+											<option value="2">BANK</option>
+										</select>								
 									</div>
 								</td>
 							</tr>
@@ -333,6 +336,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+
+
 
 <script>
 $("#id_warga").select2();
@@ -361,5 +366,12 @@ $("#pay_month_year2").datepicker( {
 
 
 
-
+$(document).ready(function() {
+    $('#dataTable2').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
 	</script>

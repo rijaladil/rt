@@ -22,7 +22,7 @@
 						        FROM amara_t_iuran 
 								LEFT JOIN amara_m_warga 
 								ON amara_t_iuran.id_warga = amara_m_warga.id 
-								WHERE amara_m_warga.status_retribusi = 1
+								WHERE amara_m_warga.status_retribusi = 1 ORDER BY amara_t_iuran.id DESC
 						       
 							    
 	    
@@ -41,12 +41,13 @@
 							    iuran.pay_date, 
 							    iuran.pay_month_year, 
 							    iuran.nominal,
-								iuran.keterangan 
+								iuran.keterangan,
+								iuran.createDate
 							FROM amara_t_iuran iuran 
 							LEFT JOIN amara_m_warga warga 
 							ON iuran.id_warga = warga.id 
 							WHERE warga.status_retribusi = 1
-							AND iuran.createDate >= NOW() - INTERVAL 1 DAY
+							AND iuran.createDate BETWEEN DATE_FORMAT(NOW(),"%Y-%m-01") AND DATE_FORMAT(NOW(),"%Y-%m-31")
 							ORDER BY iuran.createDate DESC
 		
 		');
@@ -66,6 +67,17 @@
 
 	}
 	
+
+public function get_data_show_last_pay($id){
+
+
+		$query = $this->db->query("SELECT * FROM `amara_t_iuran` WHERE `id_warga` = $id ORDER BY `amara_t_iuran`.`id` DESC
+			");
+
+		return $query->result();
+
+	}
+
 public function get_data_month(){
 	return $this->db->query('SELECT * FROM amara_m_month ORDER BY id DESC');
 	

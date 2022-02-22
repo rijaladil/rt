@@ -8,6 +8,7 @@ class User extends CI_Controller{
 		parent::__construct();	
 		$this->check_isvalidated();
 		$this->load->model('m_data_user');
+		$this->load->model('m_data_warga');
 		$this->load->helper('url');
 	}
 	// login
@@ -40,12 +41,14 @@ class User extends CI_Controller{
 		$name = $this->input->post('name');
 		$email = $this->input->post('email');
 		$contact = $this->input->post('contact');
+		$warga_id = $this->input->post('warga_id');
 		$user_level = $this->input->post('user_level');
 
 		$data = array(
 			'name' => $name,
 			'email' => $email,
 			'contact' => $contact,
+			'warga_id' => $warga_id,
 			'user_level'=> $user_level
 			);
 
@@ -56,6 +59,7 @@ class User extends CI_Controller{
 	// display input
 	function input(){
 		$data['user'] = $this->m_data_user->get_data()->result();
+		$data['warga'] = $this->m_data_warga->get_data_active()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
 		$this->load->view('pages/user/input',$data);

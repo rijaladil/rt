@@ -32,6 +32,19 @@
 					<tr>
 						<td>
 							<div class="form-group ">
+								<label for="inputdefault">Warga:</label>
+								<select class="form-control"  id="warga_id"  name="warga_id" style="width:100%" required>
+										<option value="">PILIH</option>							
+										<?php foreach($warga as $w){ ?>
+											<option value="<?php echo $w->id ?>"> <?php echo $w->address_domisili ?> : <?php echo $w->name ?> </option>
+										<?php } ?>
+									</select>							
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-group ">
 								<label for="inputdefault">User Level:</label>
 								<select class="form-control" name="user_level">
 									<option value="1">Administrator</option>
@@ -41,6 +54,9 @@
 							</div>
 						</td>
 					</tr>
+
+
+					
 					
 					<tr>
 						<td><input type="submit" class="btn btn-info" value="Input"></td>
@@ -50,3 +66,8 @@
 		</div>
 	</div>
 </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>

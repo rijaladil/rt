@@ -37,7 +37,7 @@
 								<td><?php echo $in->name ?></td>
 								<td><?php echo $in->address_domisili ?></td>
 								<td><?php echo $in->pay_date ?></td>
-								<td><?php echo  date('Y-m', strtotime($in->pay_month_year)) ?></td>
+								<td><?php echo  date('Y F', strtotime($in->pay_month_year)) ?></td>
 								<td><?php echo number_format($in->nominal ,0,',','.')?></td>
 								<td><?php echo $in->keterangan ?></td>
 								
