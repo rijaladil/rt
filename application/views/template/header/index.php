@@ -140,13 +140,15 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSiy" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-user"></i>
-          <span>Last Pay</span>
+          <span>Menu Warga</span>
         </a>
         <div id="collapseSiy" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <!-- <h6 class="collapse-header">Warga:</h6> -->
-             <a class="collapse-item" href="<?php echo base_url();?>index.php/lastpay/">Iuran Warga</a>
+             <a class="collapse-item" href="<?php echo base_url();?>index.php/lastpay/">Last Pay - Iuran Warga</a>
+             <a class="collapse-item" href="<?php echo base_url();?>index.php/mudik/">Form Mudik Warga</a>
           </div>
+          
         </div>
       </li>
 <?php } ?>

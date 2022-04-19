@@ -12,8 +12,8 @@
             <i class="fa fa-bars"></i>
           </button>
  <div class="input-group">
-          <h5 style="color:#003366"> welcome
-         <?php echo $this->session->userdata('name')?>
+          <h5 style="color:#003366"> Welcome : <b><i>
+         <?php echo $this->session->userdata('name')?></i></b>
         </h5>
 </div>
           <!-- Topbar Search -->
