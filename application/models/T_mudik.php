@@ -1,6 +1,6 @@
 <?php 
 
- class T_mudik extends CI_Model{
+ class t_mudik extends CI_Model{
 	public function get_data(){
 		// return $this->db->query('select * from  amara_t_iuran');
 		return $this->db->query('SELECT 

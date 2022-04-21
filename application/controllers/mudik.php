@@ -7,25 +7,25 @@ class mudik extends CI_Controller{
  
 	function __construct(){
 		parent::__construct();	
-		$this->check_isvalidated();	
+		// $this->check_isvalidated();	
 		$this->load->model('t_mudik');
 		$this->load->model('m_data_warga');
 		$this->load->helper('url');
 		$this->load->helper('form');
 	}
 
-	private function check_isvalidated()
-    {
-        if
-            (
-                (!$this->session->userdata('loggin'))
-                ||
-                (!in_array($this->session->userdata('level'), array(1,2,3)))
-            )
-        {
-            redirect('login');
-        }
-	}
+	// private function check_isvalidated()
+ //    {
+ //        if
+ //            (
+ //                (!$this->session->userdata('loggin'))
+ //                ||
+ //                (!in_array($this->session->userdata('level'), array(1,2,3)))
+ //            )
+ //        {
+ //            redirect('login');
+ //        }
+	// }
 	
 	// halaman utama 
 	public function index(){
@@ -33,40 +33,49 @@ class mudik extends CI_Controller{
 		$data['warga'] = $this->m_data_warga->get_data_active()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
-		$this->load->view('pages/Mudik/datatable',$data);
+		$this->load->view('pages/mudik/datatable',$data);
 		$this->load->view('template/footer/index');
 	}
 
 	// process input
 	 public function p_input(){
 	 	$id_warga = $this->input->post('id_warga');
-	 	$contact = $this->input->post('');
-	 	$pay_date = $this->input->post('pay_date');
-	 	$pay_month_year = $this->input->post('pay_month_year');
-	 	$nominal = $this->input->post('nominal');
+	 	$contact = $this->input->post('contact') ;
+	 	$start = $this->input->post('start') ;
+	 	$finish = $this->input->post('finish');
+	 	$tujuan = $this->input->post('tujuan') ; 
+	 	$penjaga = $this->input->post('penjaga');
+	 	$penjaga_name = $this->input->post('penjaga_name');
+	 	$penjaga_contact = $this->input->post('penjaga_contact');
+	 	$penjaga_nik = $this->input->post('penjaga_nik');
 	 	$keterangan = $this->input->post('keterangan');
 		
 
 		$data = array(
 			'id_warga' => $id_warga,
-			'pay_date' => $pay_date,
-			'pay_month_year' => $pay_month_year,
-			'nominal' => $nominal,
+			'contact'=>$contact ,
+			'start'=>$start ,
+			'finish'=>$finish ,
+			'tujuan'=>$tujuan ,
+			'penjaga'=>$penjaga ,
+			'penjaga_name' => $penjaga_name,
+			'penjaga_contact' => $penjaga_contact,
+			'penjaga_nik' => $penjaga_nik,
 			'keterangan' => $keterangan
 
 			);
 
-		$this->t_iuran->input_data($data,'amara_t_iuran');
-		redirect('iuran');
+		$this->t_mudik->input_data($data,'amara_t_mudik');
+		redirect('mudik');
 	}
 
 	// display input
 	public function input(){
-		$data['iuran'] = $this->t_iuran->get_data()->result();
+		$data['mudik'] = $this->t_mudik->get_data()->result();
 		$data['warga'] = $this->m_data_warga->get_data_active()->result();
 		$this->load->view('template/header/index');
 		$this->load->view('template/menu/index');
-		$this->load->view('pages/Iuran/input',$data);
+		$this->load->view('pages/mudik/input',$data);
 		$this->load->view('template/footer/index');
 
 	}
@@ -77,8 +86,8 @@ class mudik extends CI_Controller{
 	// process delete
 	public function delete($id){
 		$where = array('id' => $id);
-		$this->t_iuran->delete_data($where,'amara_t_iuran');
-		redirect('iuran/index');
+		$this->t_mudik->delete_data($where,'amara_t_mudik');
+		redirect('mudik/index');
 	}
 
 
